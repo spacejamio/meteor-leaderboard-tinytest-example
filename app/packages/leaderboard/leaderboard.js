@@ -4,6 +4,15 @@
 Players = new Meteor.Collection("players");
 
 if (Meteor.isClient) {
+
+  Players.incScoreByName = function(playerName, score){
+    Players.update({name: playerName}, {$inc: {score: score}});
+  };
+
+  Players.incScoreById = function(playerId, score){
+    Players.update({_id: playerId}, {$inc: {score: score}});
+  };
+
   Template.leaderboard.players = function () {
     return Players.find({}, {sort: {score: -1, name: 1}});
   };
@@ -19,7 +28,7 @@ if (Meteor.isClient) {
 
   Template.leaderboard.events({
     'click input.inc': function () {
-      Players.update(Session.get("selected_player"), {$inc: {score: 5}});
+      Players.incScoreById(Session.get("selected_player"), 5);
     }
   });
 
