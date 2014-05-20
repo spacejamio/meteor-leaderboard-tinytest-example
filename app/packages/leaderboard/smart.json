@@ -1,0 +1,12 @@
+{
+  "name": "munit",
+  "description": "Unit tests for packages",
+  "homepage": "https://github.com/lavaina/meteor-munit",
+  "author": "LaVaina Inc. (https://github.com/lavaina)",
+  "version": "0.1.4",
+  "git": "https://github.com/lavaina/meteor-munit.git",
+  "packages": {
+    "chai": "0.1.4",
+    "sinon": "0.1.4"
+  }
+}
